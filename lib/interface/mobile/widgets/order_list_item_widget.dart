@@ -112,43 +112,48 @@ class _OrderListItemWidgetState extends State<OrderListItemWidget> {
                       ///Timer icon & Time
                       Flexible(
                         flex: 2,
-                        child: Container(
-                          width: 100,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(0.3),
-                              borderRadius: BorderRadius.all(Radius.circular(5.0))
-                          ),
-                          margin: EdgeInsets.only(left: 10.0),
-                          padding: EdgeInsets.all(2.5),
-                          child: Container(
-                            margin: EdgeInsets.only(left: 5.0, right: 5.0, top: 2.5, bottom: 2.5),
-                            child: Row(
-                              children: [
-                                ///Timer icon
-                                Container(
-                                  child: Icon(
-                                    Icons.timer,
-                                    size: 18,
-                                    color: Colors.grey[700],
-                                  ),
-                                ),
-                                ///Time
-                                Container(
-                                  width: SizeConfig.blockSizeHorizontal * 8,
-                                  margin: EdgeInsets.only(left: 5.0),
-                                  child: FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    child: Text(
-                                      order.time,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w500
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 70,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.3),
+                                  borderRadius: BorderRadius.all(Radius.circular(5.0))
+                              ),
+                              margin: EdgeInsets.only(left: 10.0),
+                              padding: EdgeInsets.all(2.5),
+                              child: Container(
+                                margin: EdgeInsets.only(left: 5.0, right: 5.0, top: 2.5, bottom: 2.5),
+                                child: Row(
+                                  children: [
+                                    ///Timer icon
+                                    Container(
+                                      child: Icon(
+                                        Icons.timer,
+                                        size: 18,
+                                        color: Colors.grey[700],
                                       ),
                                     ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
+                                    ///Time
+                                    Container(
+                                      width: 30,
+                                      margin: EdgeInsets.only(left: 5.0),
+                                      child: FittedBox(
+                                        fit: BoxFit.scaleDown,
+                                        child: Text(
+                                          order.time,
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w500
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
                         ),
                       )
                     ],
