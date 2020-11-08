@@ -77,10 +77,10 @@ class OrderProvider{
 
     ///Restaurant 02
     var jsonOrder9 = '{"id" : "09", "location" : "Table 50", "time" : "3:11", "message" : "Looking at menu", "username" : "Fish", "awaiting" : true, "restaurantId" : "02"}';
-    var jsonOrder10 = '{"id" : "10", "location" : "Table 32", "time" : "3:50", "message" : "Looking at menu", "username" : "Akon", "awaiting" : true, "restaurantId" : "02"}';
+    //var jsonOrder10 = '{"id" : "10", "location" : "Table 32", "time" : "3:50", "message" : "Looking at menu", "username" : "Akon", "awaiting" : true, "restaurantId" : "02"}';
 
     OrderModel order9 = OrderModel.fromJson(jsonDecode(jsonOrder9));
-    OrderModel order10 = OrderModel.fromJson(jsonDecode(jsonOrder10));
+    //OrderModel order10 = OrderModel.fromJson(jsonDecode(jsonOrder10));
 
 
     List<OrderModel> tmpOrders = new List();
@@ -88,7 +88,7 @@ class OrderProvider{
     tmpOrders.add(order2);
     tmpOrders.add(order3);
     tmpOrders.add(order9);
-    tmpOrders.add(order10);
+    //tmpOrders.add(order10);
 
     List<OrderModel> orders = new List();
     tmpOrders.forEach((element) {

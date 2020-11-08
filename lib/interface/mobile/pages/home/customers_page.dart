@@ -214,7 +214,9 @@ class _CustomersPageState extends State<CustomersPage> {
                         case ConnectionState.active:
                         case ConnectionState.done:
 
-                          widget = CustomScrollView(slivers: [
+                          widget = CustomScrollView(
+                              shrinkWrap: true,
+                              slivers: [
                             SliverList(
                               delegate: SliverChildBuilderDelegate(
                                     (context, index){
@@ -266,7 +268,9 @@ class _CustomersPageState extends State<CustomersPage> {
                         case ConnectionState.none:
                         case ConnectionState.active:
                         case ConnectionState.done:
-                          widget = CustomScrollView(slivers: [
+                          widget = CustomScrollView(
+                            shrinkWrap: true,
+                              slivers: [
                             SliverList(
                               delegate: SliverChildBuilderDelegate(
                                     (context, index){

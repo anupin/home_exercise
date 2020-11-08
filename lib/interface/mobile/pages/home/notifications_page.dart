@@ -56,7 +56,9 @@ class _NotificationsPageState extends State<NotificationsPage> {
                                 case ConnectionState.active:
                                 case ConnectionState.done:
 
-                                  widget = CustomScrollView(slivers: [
+                                  widget = CustomScrollView(
+                                      shrinkWrap: false,
+                                      slivers: [
                                     SliverList(
                                       delegate: SliverChildBuilderDelegate(
                                             (context, index){
