@@ -69,10 +69,11 @@ class _CustomersPageState extends State<CustomersPage> {
                                 color: Colors.transparent
                             ),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 ///Worker card
                                 Expanded(
-                                  flex: 4,
+                                  flex: 3,
                                   child: Container(
                                     width: double.infinity,
                                     margin: EdgeInsets.only(top: 25.0, left: 15.0),
@@ -146,13 +147,19 @@ class _CustomersPageState extends State<CustomersPage> {
                                 ///Business logo
                                 Expanded(
                                   flex: 2,
-                                  child: Container(
-                                    //color: Colors.deepOrange,
-                                    child: Image.asset(
-                                        restaurant.image,
-                                        fit: BoxFit.none,
-                                        scale: 1.1
-                                    ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Container(
+                                        //color: Colors.deepOrange,
+                                        width: 140,
+                                        child: Image.asset(
+                                            restaurant.image,
+                                            fit: BoxFit.none,
+                                            scale: 1.1
+                                        ),
+                                      )
+                                    ]
                                   ),
                                 )
                               ],

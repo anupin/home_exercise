@@ -45,27 +45,33 @@ class _OrderListItemWidgetState extends State<OrderListItemWidget> {
           ///Profile pic
           Expanded(
             flex: 1,
-            child: Container(
-              width: 50,
-              height: 50,
-              margin: EdgeInsets.all(15.0),
-              decoration: BoxDecoration(
-                  color: order.awaiting ? Colors.grey[400] : colors[order.username.substring(0,1)],
-                borderRadius: BorderRadius.all(Radius.circular(30.0))
-              ),
-              child: !order.awaiting ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    order.username.substring(0,1),
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                      fontSize: 30
-                    ),
-                  )
-                ],
-              ) : Container(),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 50,
+                  width: 50,
+                  //padding: EdgeInsets.all(15.0),
+                  //margin: EdgeInsets.only(left: 10.0, right: 10.0),
+                  decoration: BoxDecoration(
+                    color: order.awaiting ? Colors.grey[400] : colors[order.username.substring(0,1)],
+                    borderRadius: BorderRadius.all(Radius.circular(25.0))
+                  ),
+                  child: !order.awaiting ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        order.username.substring(0,1),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                            fontSize: 30
+                        ),
+                      )
+                    ],
+                  ) : Container(),
+                )
+              ],
             )
           ),
           ///Order details
@@ -154,7 +160,6 @@ class _OrderListItemWidgetState extends State<OrderListItemWidget> {
           Expanded(
             flex: 1,
             child: Container(
-              width: double.infinity,
               //color: Colors.deepOrange,
               child: Icon(
                 Icons.chevron_right,
