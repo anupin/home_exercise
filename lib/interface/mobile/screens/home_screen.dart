@@ -103,7 +103,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(restaurant.name),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(restaurant.name)
+          ],
+        ),
         actions: [
           Container(
             width: 50,

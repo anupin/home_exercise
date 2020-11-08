@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:home_exercise/blocs/notification_bloc.dart';
 import 'package:home_exercise/interface/mobile/widgets/notification_list_item_widget.dart';
 import 'package:home_exercise/models/notification_model.dart';
+import 'package:home_exercise/utils/size_config.dart';
 import 'package:home_exercise/utils/utils.dart';
 
 class NotificationsPage extends StatefulWidget {
@@ -23,6 +24,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
   @override
   Widget build(BuildContext context) {
 
+    SizeConfig().init(context);
     notificationBloc.getNotifications();
 
     return Scaffold(
@@ -67,7 +69,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
                                         );
                                       },
                                       separatorBuilder: (BuildContext context, int index) => Padding(
-                                        padding: EdgeInsets.only(left: 60.0, right: 10.0),
+                                        padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 20, right: 10.0),
                                         child: Divider(
                                           color: Colors.grey,
                                           height: 1.0,

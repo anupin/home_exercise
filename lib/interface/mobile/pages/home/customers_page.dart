@@ -5,6 +5,7 @@ import 'package:home_exercise/interface/mobile/widgets/order_list_item_widget.da
 import 'package:home_exercise/models/manager_model.dart';
 import 'package:home_exercise/models/order_model.dart';
 import 'package:home_exercise/models/restaurant_model.dart';
+import 'package:home_exercise/utils/size_config.dart';
 import 'package:home_exercise/utils/utils.dart';
 import 'package:intl/intl.dart';
 
@@ -44,6 +45,8 @@ class _CustomersPageState extends State<CustomersPage> {
 
   @override
   Widget build(BuildContext context) {
+
+    SizeConfig().init(context);
 
     ordersBloc.getAwaitings(manager.restaurantId);
     ordersBloc.getOrders(manager.restaurantId);
@@ -220,7 +223,7 @@ class _CustomersPageState extends State<CustomersPage> {
                               );
                             },
                             separatorBuilder: (BuildContext context, int index) => Padding(
-                              padding: EdgeInsets.only(left: 60.0, right: 10.0),
+                              padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 20, right: 10.0),
                               child: Divider(
                                 color: Colors.grey,
                                 height: 1.0,
@@ -276,7 +279,7 @@ class _CustomersPageState extends State<CustomersPage> {
                               );
                             },
                             separatorBuilder: (BuildContext context, int index) => Padding(
-                              padding: EdgeInsets.only(left: 60.0, right: 10.0),
+                              padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 20, right: 10.0),
                               child: Divider(
                                 color: Colors.grey,
                                 height: 1.0,

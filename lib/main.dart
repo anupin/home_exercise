@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
     ///Init Manager
     var jsonManager1 = '{"id" : "01", "name" : "Alice", "surname" : "Chioccia", "shift" : "11:00 - 15:30", "restaurantId" : "01"}';
     var jsonManager2 = '{"id" : "02", "name" : "Riccardo", "surname" : "Covik", "shift" : "15:30 - 00:00", "restaurantId" : "02"}';
-    manager = ManagerModel.fromJson(jsonDecode(jsonManager1));
+    manager = ManagerModel.fromJson(jsonDecode(jsonManager2));
 
   }
 
