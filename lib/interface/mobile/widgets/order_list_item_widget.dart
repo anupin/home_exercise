@@ -110,7 +110,7 @@ class _OrderListItemWidgetState extends State<OrderListItemWidget> {
                         ),
                       ),
                       ///Timer icon & Time
-                      Expanded(
+                      Flexible(
                         flex: 2,
                         child: Container(
                           decoration: BoxDecoration(
