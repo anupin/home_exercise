@@ -213,27 +213,23 @@ class _CustomersPageState extends State<CustomersPage> {
                         case ConnectionState.none:
                         case ConnectionState.active:
                         case ConnectionState.done:
-                          widget = ListView.separated(
-                            shrinkWrap: true,
-                            itemCount: awaitingsSnapshot.data.length,
-                            scrollDirection: Axis.vertical,
-                            itemBuilder: (context, index){
-                              OrderModel order = awaitingsSnapshot.data.elementAt(index);
-                              return InkWell(
-                                onTap: (){
-                                  debugPrint('You tapped item ${++index}');
+
+                          widget = CustomScrollView(slivers: [
+                            SliverList(
+                              delegate: SliverChildBuilderDelegate(
+                                    (context, index){
+                                  OrderModel order = awaitingsSnapshot.data.elementAt(index);
+                                  return InkWell(
+                                    onTap: (){
+                                      debugPrint('You tapped item ${++index}');
+                                    },
+                                    child: OrderListItemWidget(order),
+                                  );
                                 },
-                                child: OrderListItemWidget(order),
-                              );
-                            },
-                            separatorBuilder: (BuildContext context, int index) => Padding(
-                              padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 20, right: 10.0), ///Padding 20% of the screen width on left and 10 on right
-                              child: Divider(
-                                color: Colors.grey,
-                                height: 1.0,
+                                childCount: awaitingsSnapshot.data.length,
                               ),
                             ),
-                          );
+                          ]);
 
                           break;
                       }
@@ -270,27 +266,22 @@ class _CustomersPageState extends State<CustomersPage> {
                         case ConnectionState.none:
                         case ConnectionState.active:
                         case ConnectionState.done:
-                          widget = ListView.separated(
-                            shrinkWrap: true,
-                            itemCount: ordersSnapshot.data.length,
-                            scrollDirection: Axis.vertical,
-                            itemBuilder: (context, index){
-                              OrderModel order = ordersSnapshot.data.elementAt(index);
-                              return InkWell(
-                                onTap: (){
-                                  debugPrint('You tapped item ${++index}');
+                          widget = CustomScrollView(slivers: [
+                            SliverList(
+                              delegate: SliverChildBuilderDelegate(
+                                    (context, index){
+                                  OrderModel order = ordersSnapshot.data.elementAt(index);
+                                  return InkWell(
+                                    onTap: (){
+                                      debugPrint('You tapped item ${++index}');
+                                    },
+                                    child: OrderListItemWidget(order),
+                                  );
                                 },
-                                child: OrderListItemWidget(order),
-                              );
-                            },
-                            separatorBuilder: (BuildContext context, int index) => Padding(
-                              padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 20, right: 10.0), ///Padding 20% of the screen width on left and 10 on right
-                              child: Divider(
-                                color: Colors.grey,
-                                height: 1.0,
+                                childCount: ordersSnapshot.data.length,
                               ),
                             ),
-                          );
+                          ]);
 
                           break;
                       }

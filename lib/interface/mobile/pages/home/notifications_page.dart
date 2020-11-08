@@ -55,30 +55,23 @@ class _NotificationsPageState extends State<NotificationsPage> {
                                 case ConnectionState.none:
                                 case ConnectionState.active:
                                 case ConnectionState.done:
-                                  widget = MediaQuery.removePadding(
-                                    removeTop: true,
-                                    context: context,
-                                    child: ListView.separated(
-                                      itemCount: notificationsSnapshot.data.length,
-                                      scrollDirection: Axis.vertical,
-                                      itemBuilder: (context, index){
-                                        NotificationModel notification = notificationsSnapshot.data.elementAt(index);
-                                        return InkWell(
-                                          onTap: (){
-                                            debugPrint('You tapped item ${++index}');
-                                          },
-                                          child: NotificationListItemWidget(notification),
-                                        );
-                                      },
-                                      separatorBuilder: (BuildContext context, int index) => Padding(
-                                        padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 20, right: 10.0), ///Padding 20% of the screen width on left and 10 on right
-                                        child: Divider(
-                                          color: Colors.grey,
-                                          height: 1.0,
-                                        ),
+
+                                  widget = CustomScrollView(slivers: [
+                                    SliverList(
+                                      delegate: SliverChildBuilderDelegate(
+                                            (context, index){
+                                          NotificationModel notification = notificationsSnapshot.data.elementAt(index);
+                                          return InkWell(
+                                            onTap: (){
+                                              debugPrint('You tapped item ${++index}');
+                                            },
+                                            child: NotificationListItemWidget(notification),
+                                          );
+                                        },
+                                        childCount: notificationsSnapshot.data.length,
                                       ),
                                     ),
-                                  );
+                                  ]);
                                   break;
                               }
                               //usersBloc.getUsers();
