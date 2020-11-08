@@ -113,7 +113,7 @@ class _OrderListItemWidgetState extends State<OrderListItemWidget> {
                       Flexible(
                         flex: 2,
                         child: Container(
-                          width: SizeConfig.blockSizeHorizontal * 20,
+                          width: 100,
                           decoration: BoxDecoration(
                               color: Colors.grey.withOpacity(0.3),
                               borderRadius: BorderRadius.all(Radius.circular(5.0))
