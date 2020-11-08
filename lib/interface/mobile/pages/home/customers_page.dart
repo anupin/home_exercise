@@ -223,7 +223,8 @@ class _CustomersPageState extends State<CustomersPage> {
                                   OrderModel order = awaitingsSnapshot.data.elementAt(index);
                                   return InkWell(
                                     onTap: (){
-                                      debugPrint('You tapped item ${++index}');
+                                      int pos = index;
+                                      debugPrint('You tapped item ${++pos}');
                                     },
                                     child: OrderListItemWidget(order),
                                   );
@@ -277,7 +278,8 @@ class _CustomersPageState extends State<CustomersPage> {
                                   OrderModel order = ordersSnapshot.data.elementAt(index);
                                   return InkWell(
                                     onTap: (){
-                                      debugPrint('You tapped item ${++index}');
+                                      int pos = index;
+                                      debugPrint('You tapped item ${++pos}');
                                     },
                                     child: OrderListItemWidget(order),
                                   );

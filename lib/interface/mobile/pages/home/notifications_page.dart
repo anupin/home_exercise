@@ -65,7 +65,8 @@ class _NotificationsPageState extends State<NotificationsPage> {
                                           NotificationModel notification = notificationsSnapshot.data.elementAt(index);
                                           return InkWell(
                                             onTap: (){
-                                              debugPrint('You tapped item ${++index}');
+                                              int pos = index;
+                                              debugPrint('You tapped item ${++pos}');
                                             },
                                             child: NotificationListItemWidget(notification),
                                           );
