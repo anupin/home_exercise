@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:home_exercise/models/order_model.dart';
 
 ///Order provider
@@ -10,6 +9,14 @@ class OrderProvider{
   ///When the call will be done, it will ask only for documents with a certain restaurantId,
   ///what i did here was done only for testing purposes
   static Future<List<OrderModel>> getOrders(String restaurantId) async{
+
+    ///Firebase call (might not work at first try)
+    /*List<DocumentSnapshot> rawOrders = (await References.ordersCollection.where('awaiting', isEqualTo: false).where('restaurantId', isEqualTo: restaurantId).getDocuments()).documents;
+    List<OrderModel> orders = new List();
+    rawOrders.forEach((element) {
+      OrderModel order = OrderModel.fromJson(element.data);
+      orders.add(order);
+    });*/
 
     ///Restaurant 01
     var jsonOrder3 = '{"id" : "03", "location" : "Table 22", "time" : "5:32", "message" : "Preparing to order", "username" : "Ink", "awaiting" : false, "restaurantId" : "01"}';
@@ -50,6 +57,14 @@ class OrderProvider{
   ///When the call will be done, it will ask only for documents with a certain restaurantId,
   ///what i did here was done only for testing purposes
   static Future<List<OrderModel>> getAwaitings(String restaurantId) async{
+
+    ///Firebase call (might not work at first try)
+    /*List<DocumentSnapshot> rawOrders = (await References.ordersCollection.where('awaiting', isEqualTo: true).where('restaurantId', isEqualTo: restaurantId).getDocuments()).documents;
+    List<OrderModel> orders = new List();
+    rawOrders.forEach((element) {
+      OrderModel order = OrderModel.fromJson(element.data);
+      orders.add(order);
+    });*/
 
     ///Restaurant 01
     var jsonOrder1 = '{"id" : "01", "location" : "Table 23", "time" : "2:29", "message" : "Looking at menu", "username" : "Pablo", "awaiting" : true, "restaurantId" : "01"}';

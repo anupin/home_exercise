@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:home_exercise/interface/mobile/pages/home/customers_page.dart';
@@ -10,11 +9,14 @@ import 'package:home_exercise/utils/menu_drawer.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// ignore: must_be_immutable
 class HomeScreen extends StatefulWidget {
   static String route = '/home';
+
   RestaurantModel restaurant;
   ManagerModel manager;
   HomeScreen({Key key, this.restaurant, this.manager}) : super(key: key);
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -23,8 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   ///Bottom tab bar controller
   PersistentTabController _controller;
-  ///Selected item
-  int _selectedTab = 0;
 
   ///Models
   RestaurantModel restaurant;
@@ -165,8 +165,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
-
 }
 
 ///Custom nav bar class
@@ -175,15 +173,10 @@ class CustomNavBarWidget extends StatelessWidget {
   final List<PersistentBottomNavBarItem> items; // NOTE: You CAN declare your own model here instead of `PersistentBottomNavBarItem`.
   final ValueChanged<int> onItemSelected;
 
-  CustomNavBarWidget(
-      {Key key,
-        this.selectedIndex,
-        @required this.items,
-        this.onItemSelected,});
+  CustomNavBarWidget({Key key, this.selectedIndex, @required this.items, this.onItemSelected,});
 
   ///Build tab items
-  Widget _buildItem(
-      PersistentBottomNavBarItem item, bool isSelected) {
+  Widget _buildItem(PersistentBottomNavBarItem item, bool isSelected) {
     return Container(
       color: isSelected ? Colors.white : Color(0xff207cc3),
       alignment: Alignment.center,

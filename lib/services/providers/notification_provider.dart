@@ -6,6 +6,14 @@ class NotificationProvider{
 
   ///Get the orders
   static Future<List<NotificationModel>> getNotifications() async{
+
+    /*List<DocumentSnapshot> rawOrders = (await References.notificationsCollection.getDocuments()).documents;
+    List<NotificationsModel> notifications = new List();
+    rawOrders.forEach((element) {
+      NotificationsModel notification = NotificationsModel.fromJson(element.data);
+      notifications.add(notification);
+    });*/
+
     var jsonNotification1 = '{"id" : "01", "message" : "Lorem Ipsums", "time" : "8:32"}';
     var jsonNotification2 = '{"id" : "02", "message" : "Lorem Ipsums", "time" : "10:00"}';
     var jsonNotification3 = '{"id" : "03", "message" : "Lorem Ipsums", "time" : "13:12"}';

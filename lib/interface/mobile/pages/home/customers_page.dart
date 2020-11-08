@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:home_exercise/blocs/orders_bloc.dart';
 import 'package:home_exercise/interface/mobile/widgets/order_list_item_widget.dart';
@@ -7,20 +6,22 @@ import 'package:home_exercise/models/order_model.dart';
 import 'package:home_exercise/models/restaurant_model.dart';
 import 'package:home_exercise/utils/size_config.dart';
 import 'package:home_exercise/utils/utils.dart';
-import 'package:intl/intl.dart';
 
+// ignore: must_be_immutable
 class CustomersPage extends StatefulWidget {
   //static String route = '/home';
   ManagerModel manager;
   RestaurantModel restaurant;
   CustomersPage(this.manager, this.restaurant);
+
   @override
   _CustomersPageState createState() => _CustomersPageState();
 }
 
 class _CustomersPageState extends State<CustomersPage> {
-
+  ///ORders bloc
   OrdersBloc ordersBloc;
+  ///Models
   ManagerModel manager;
   RestaurantModel restaurant;
 
@@ -32,6 +33,7 @@ class _CustomersPageState extends State<CustomersPage> {
     restaurant = widget.restaurant;
   }
 
+  ///Greetings method
   String greeting() {
     var hour = DateTime.now().hour;
     if (hour < 12) {
@@ -45,7 +47,7 @@ class _CustomersPageState extends State<CustomersPage> {
 
   @override
   Widget build(BuildContext context) {
-
+    ///Init sizeConfig
     SizeConfig().init(context);
 
     ordersBloc.getAwaitings(manager.restaurantId);
@@ -57,8 +59,9 @@ class _CustomersPageState extends State<CustomersPage> {
           child: Container(
             child: Column(
               children: [
+                ///Appabar bottom arc & Worker card & Business logo
                 Container(
-                  height: 115,
+                  height: 115, ///Fixed height
                   //width: double.infinity,
                   //color: Colors.deepOrange,
                   child: Stack(
@@ -155,10 +158,10 @@ class _CustomersPageState extends State<CustomersPage> {
                                     children: [
                                       Container(
                                         //color: Colors.deepOrange,
-                                        width: 140,
+                                        width: 140, ///Fixed width
                                         child: Image.asset(
                                             restaurant.image,
-                                            fit: BoxFit.none,
+                                            fit: BoxFit.cover,
                                             scale: 1.1
                                         ),
                                       )
@@ -183,7 +186,7 @@ class _CustomersPageState extends State<CustomersPage> {
                 ),
                 ///Awaiting to order text
                 Container(
-                  margin: EdgeInsets.only(left: 15.0),
+                  margin: EdgeInsets.only(left: 15.0), ///Left margin
                   child: Row(
                     children: [
                       Text(
@@ -196,6 +199,7 @@ class _CustomersPageState extends State<CustomersPage> {
                     ],
                   )
                 ),
+                ///Awaiting orders list
                 Flexible(
                   flex: 1,
                   child: StreamBuilder<List<OrderModel>>(
@@ -217,13 +221,13 @@ class _CustomersPageState extends State<CustomersPage> {
                               OrderModel order = awaitingsSnapshot.data.elementAt(index);
                               return InkWell(
                                 onTap: (){
-                                  debugPrint('You tapped item ${index}');
+                                  debugPrint('You tapped item ${++index}');
                                 },
                                 child: OrderListItemWidget(order),
                               );
                             },
                             separatorBuilder: (BuildContext context, int index) => Padding(
-                              padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 20, right: 10.0),
+                              padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 20, right: 10.0), ///Padding 20% of the screen width on left and 10 on right
                               child: Divider(
                                 color: Colors.grey,
                                 height: 1.0,
@@ -240,7 +244,7 @@ class _CustomersPageState extends State<CustomersPage> {
                 ),
                 ///Table orders text
                 Container(
-                    margin: EdgeInsets.only(left: 15.0),
+                    margin: EdgeInsets.only(left: 15.0), ///Left margin
                     child: Row(
                       children: [
                         Text(
@@ -253,6 +257,7 @@ class _CustomersPageState extends State<CustomersPage> {
                       ],
                     )
                 ),
+                ///Table ordes list
                 Flexible(
                   child: StreamBuilder<List<OrderModel>>(
                     stream: ordersBloc.orders,
@@ -273,13 +278,13 @@ class _CustomersPageState extends State<CustomersPage> {
                               OrderModel order = ordersSnapshot.data.elementAt(index);
                               return InkWell(
                                 onTap: (){
-                                  debugPrint('You tapped item ${index}');
+                                  debugPrint('You tapped item ${++index}');
                                 },
                                 child: OrderListItemWidget(order),
                               );
                             },
                             separatorBuilder: (BuildContext context, int index) => Padding(
-                              padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 20, right: 10.0),
+                              padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 20, right: 10.0), ///Padding 20% of the screen width on left and 10 on right
                               child: Divider(
                                 color: Colors.grey,
                                 height: 1.0,
@@ -301,6 +306,4 @@ class _CustomersPageState extends State<CustomersPage> {
       ),
     );
   }
-
-
 }

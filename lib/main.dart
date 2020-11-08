@@ -25,20 +25,24 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     ///Init Restaurant
     var jsonRestaurant1 = '{"id" : "01", "name" : "Restaurant Night Leaf", "phonenumber" : "111 111 1111", "image" : "assets/images/business_logo.png"}';
-    var jsonRestaurant2 = '{"id" : "02", "name" : "Restaurant Day Leaf", "phonenumber" : "222 222 2222", "image" : "assets/images/business_logo.png"}';
-    restaurant = RestaurantModel.fromJson(jsonDecode(jsonRestaurant1));
+    var jsonRestaurant2 = '{"id" : "02", "name" : "Restaurant Day Leaf", "phonenumber" : "222 222 2222", "image" : "assets/images/business_logo2.png"}';
 
     ///Init Manager
     var jsonManager1 = '{"id" : "01", "name" : "Alice", "surname" : "Chioccia", "shift" : "11:00 - 15:30", "restaurantId" : "01"}';
     var jsonManager2 = '{"id" : "02", "name" : "Riccardo", "surname" : "Covik", "shift" : "15:30 - 00:00", "restaurantId" : "02"}';
-    manager = ManagerModel.fromJson(jsonDecode(jsonManager2));
 
+    manager = ManagerModel.fromJson(jsonDecode(jsonManager1)); ///Change jsonManager1|2 to see different cases and hot restart
+
+    if(manager.restaurantId.endsWith('1'))
+      restaurant = RestaurantModel.fromJson(jsonDecode(jsonRestaurant1));
+    else
+      restaurant = RestaurantModel.fromJson(jsonDecode(jsonRestaurant2));
   }
 
   @override
   Widget build(BuildContext context) {
 
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]); ///Only portrait
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,

@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:home_exercise/models/notification_model.dart';
 import 'package:home_exercise/utils/size_config.dart';
 
+// ignore: must_be_immutable
 class NotificationListItemWidget extends StatefulWidget {
 
   NotificationModel notification;
-
   NotificationListItemWidget(this.notification);
 
   @override
   _NotificationListItemWidgetState createState() => _NotificationListItemWidgetState();
 }
 class _NotificationListItemWidgetState extends State<NotificationListItemWidget> {
-
+  ///Models
   NotificationModel notification;
 
   @override
@@ -24,6 +24,7 @@ class _NotificationListItemWidgetState extends State<NotificationListItemWidget>
 
   @override
   Widget build(BuildContext context) {
+    ///Init sizeConfig
     SizeConfig().init(context);
 
     return Container(
@@ -70,7 +71,7 @@ class _NotificationListItemWidgetState extends State<NotificationListItemWidget>
               ),
             ),
           ),
-          ///Icon
+          ///Arrow
           Expanded(
             flex: 1,
             child: Container(

@@ -1,7 +1,5 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:home_exercise/utils/size_config.dart';
-
 
 // ignore: must_be_immutable
 class MenuDrawer extends StatefulWidget {
@@ -12,11 +10,9 @@ class MenuDrawer extends StatefulWidget {
 
 class MenuDrawerState extends State<MenuDrawer> {
 
-
   @override
   void initState() {
     super.initState();
-
   }
 
 
@@ -30,7 +26,6 @@ class MenuDrawerState extends State<MenuDrawer> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-
           ],
         ),
       ),

@@ -1,4 +1,3 @@
-import 'package:clippy_flutter/clippy_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:home_exercise/utils/utils.dart';
 
@@ -19,7 +18,7 @@ class _SpecialsPageState extends State<SpecialsPage> {
             child: Column(
               children: [
                 Container(
-                  height: 20,
+                  height: 20, ///Fixed height
                   child: Stack(
                     children: [
                       Positioned.fill(

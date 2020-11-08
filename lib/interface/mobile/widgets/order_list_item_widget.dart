@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:home_exercise/models/order_model.dart';
 import 'package:home_exercise/utils/size_config.dart';
 
+// ignore: must_be_immutable
 class OrderListItemWidget extends StatefulWidget {
   
   OrderModel order;
-
   OrderListItemWidget(this.order);
 
   @override
@@ -14,6 +14,7 @@ class OrderListItemWidget extends StatefulWidget {
 }
 class _OrderListItemWidgetState extends State<OrderListItemWidget> {
 
+  ///Model
   OrderModel order;
   Map<String, Color> colors = new Map();
 
@@ -22,7 +23,7 @@ class _OrderListItemWidgetState extends State<OrderListItemWidget> {
     super.initState();
     order = widget.order;
     
-    ///Non ottimizato
+    ///Not optimize(just a random idea)
     colors.putIfAbsent('A', () => Colors.greenAccent);
     colors.putIfAbsent('C', () => Colors.purple);
     colors.putIfAbsent('I', () => Colors.lightBlueAccent[100]);
@@ -33,11 +34,12 @@ class _OrderListItemWidgetState extends State<OrderListItemWidget> {
 
   @override
   Widget build(BuildContext context) {
+    ///Init sizeConfig
     SizeConfig().init(context);
 
     return Container(
       padding: EdgeInsets.only(left: 10.0),
-      height: 80, ///Item size
+      height: 80, ///Fixed height
       width: double.infinity, ///Screen width
       //color: Colors.blue,
       child: Row(

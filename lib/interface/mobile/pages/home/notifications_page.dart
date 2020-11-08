@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:home_exercise/blocs/notification_bloc.dart';
 import 'package:home_exercise/interface/mobile/widgets/notification_list_item_widget.dart';
@@ -14,7 +13,9 @@ class NotificationsPage extends StatefulWidget {
 
 class _NotificationsPageState extends State<NotificationsPage> {
 
+  ///Notification bloc
   NotificationBloc notificationBloc;
+
   @override
   void initState() {
     super.initState();
@@ -23,7 +24,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
 
   @override
   Widget build(BuildContext context) {
-
+    ///Init sizeConfig
     SizeConfig().init(context);
     notificationBloc.getNotifications();
 
@@ -33,6 +34,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
           child: Container(
             child: Column(
               children: [
+                ///Appbar bottom arc & Notification list
                 Expanded(
                   flex: 1,
                   child: Stack(
@@ -63,13 +65,13 @@ class _NotificationsPageState extends State<NotificationsPage> {
                                         NotificationModel notification = notificationsSnapshot.data.elementAt(index);
                                         return InkWell(
                                           onTap: (){
-                                            debugPrint('You tapped item ${index}');
+                                            debugPrint('You tapped item ${++index}');
                                           },
                                           child: NotificationListItemWidget(notification),
                                         );
                                       },
                                       separatorBuilder: (BuildContext context, int index) => Padding(
-                                        padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 20, right: 10.0),
+                                        padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 20, right: 10.0), ///Padding 20% of the screen width on left and 10 on right
                                         child: Divider(
                                           color: Colors.grey,
                                           height: 1.0,
@@ -77,7 +79,6 @@ class _NotificationsPageState extends State<NotificationsPage> {
                                       ),
                                     ),
                                   );
-
                                   break;
                               }
                               //usersBloc.getUsers();
